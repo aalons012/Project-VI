@@ -6,7 +6,7 @@ You were hired to implement usingJava a Train system simulation, designed by a d
 ## Objectives:
 You must implement the system using the given design and make sure that all the unit tests pass against your code. Your program must implement the complete design to include all the classes, methods, constructors, constants, and attributes, and the input and output specification exactly. You cannot redesign or change the system.
 
-Steps:
+### Steps:
 * Create a new project in Eclipse and import the unit tests (tests.zip) and data files into your projects src. Add JUnit library to your Eclipse project
 * Note that you will have syntax errors in the tests until you create all the classes
 * The unit test suite is divided into the basic and advanced tests for each Java class. 
