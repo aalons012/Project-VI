@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
