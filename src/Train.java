@@ -14,7 +14,7 @@ public class Train {
         this.currTime = 0;
     }
 
-    // THIS IS FROM simulate.txt – paste exactly as given
+    
     public void simulate()
     {
         int currStop = 1;   // current stop starts at 1
