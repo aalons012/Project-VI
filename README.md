@@ -21,6 +21,7 @@ Steps:
 
 ## Resources:
 Proj6-MSIT660-GradingCriteria.doc – lists the grading criteria
+
 You can use any code examples under My Course Content->Code Examples
 
 ## Deliverables:
