@@ -62,6 +62,43 @@
 		cust.setStatus(Customer.CUST_ENTERED);  // set status to allowed value
 		assertEquals(message, Customer.CUST_ENTERED, cust.getStatus());  // expect status to be set to value of CUST_ENTERED
 	}
+	@Test
+	// Test that setStatus correctly updates the attributes and get method returns it:
+	//     attribute status set to CUST_EXITED
+	public void testConstructorMethodSetStatusValue2() {
+		String message = "status value set in setStatus(int) does not match one returned by get method";
+		int id = 5;
+		int time = 10;
+		int enter = 6;
+		int exit = 8;
+		Customer cust = new Customer(id, time, enter, exit); // new instance of Customer
+		cust.setStatus(Customer.CUST_EXITED);  // set status to allowed value
+		assertEquals(message, Customer.CUST_EXITED, cust.getStatus());  // expect status to be set to value of CUST_EXITED
+	}
+```
+## Errors
+```
+```
+## Fail
+```
+	@Test
+	// test that if id attribute is negative throws IllegalArgumentException
+	public void testIdNegativeValue()
+	{
+		try {
+			int id = -3;  // invalid value of id
+			int time = 10;
+			int enter = 6;
+			int exit = 8;
+			new Customer(id, time, enter, exit); // new instance of Customer
+			fail("Constructor should throw exception for invalid value of id");  // if get here no exception was thrown
+		} catch (Exception e) {
+            if (e instanceof IllegalArgumentException)
+                assertTrue(true); // if here, caught exception
+           else
+                 fail("Caught exception but it was not IllegalArgumentException as documented");
+		}
+	}
 -------------------------------------------------------------
 Reason for failiure ↑↑↑
 java.lang.AssertionError: Constructor should throw exception for invalid value of id
@@ -94,17 +131,22 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 
 -------------------------------------------------------------
 	@Test
-	// Test that setStatus correctly updates the attributes and get method returns it:
-	//     attribute status set to CUST_EXITED
-	public void testConstructorMethodSetStatusValue2() {
-		String message = "status value set in setStatus(int) does not match one returned by get method";
-		int id = 5;
-		int time = 10;
-		int enter = 6;
-		int exit = 8;
-		Customer cust = new Customer(id, time, enter, exit); // new instance of Customer
-		cust.setStatus(Customer.CUST_EXITED);  // set status to allowed value
-		assertEquals(message, Customer.CUST_EXITED, cust.getStatus());  // expect status to be set to value of CUST_EXITED
+	// test that if id attribute is zero throws IllegalArgumentException
+	public void testIdZeroValue()
+	{
+		try {
+			int id = 0;  // invalid value of id
+			int time = 10;
+			int enter = 6;
+			int exit = 8;
+			new Customer(id, time, enter, exit); // new instance of Customer
+			fail("Constructor should throw exception for invalid value of id");  // if get here no exception was thrown
+		} catch (Exception e) {
+            if (e instanceof IllegalArgumentException)
+                assertTrue(true); // if here, caught exception
+           else
+                 fail("Caught exception but it was not IllegalArgumentException as documented");
+		}
 	}
 -------------------------------------------------------------
 Reason of Failure ↑↑↑
@@ -136,51 +178,7 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211)
 
-
 -------------------------------------------------------------
-```
-## Errors
-```
-```
-## Fail
-```
-	@Test
-	// test that if id attribute is negative throws IllegalArgumentException
-	public void testIdNegativeValue()
-	{
-		try {
-			int id = -3;  // invalid value of id
-			int time = 10;
-			int enter = 6;
-			int exit = 8;
-			new Customer(id, time, enter, exit); // new instance of Customer
-			fail("Constructor should throw exception for invalid value of id");  // if get here no exception was thrown
-		} catch (Exception e) {
-            if (e instanceof IllegalArgumentException)
-                assertTrue(true); // if here, caught exception
-           else
-                 fail("Caught exception but it was not IllegalArgumentException as documented");
-		}
-	}
-
-	@Test
-	// test that if id attribute is zero throws IllegalArgumentException
-	public void testIdZeroValue()
-	{
-		try {
-			int id = 0;  // invalid value of id
-			int time = 10;
-			int enter = 6;
-			int exit = 8;
-			new Customer(id, time, enter, exit); // new instance of Customer
-			fail("Constructor should throw exception for invalid value of id");  // if get here no exception was thrown
-		} catch (Exception e) {
-            if (e instanceof IllegalArgumentException)
-                assertTrue(true); // if here, caught exception
-           else
-                 fail("Caught exception but it was not IllegalArgumentException as documented");
-		}
-	}	
 ```
 
 # TestCustomerBasics.java
@@ -237,5 +235,6 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 ## Fail
 ```
 ```
+
 
 
