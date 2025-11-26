@@ -571,17 +571,9 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211)
 -------------------------------------------------------------
 ```
-
 # TestCustomerBasics.java
-## Pass
-```
-```
-## Errors
-```
-```
-## Fail
-```
-```
+## All Passed
+## No Errors nor Failed
 
 # TestSimulatorAdvanced.java
 ## Pass
@@ -595,15 +587,8 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 ```
 
 # TestSimulatorBasics.java
-## Pass
-```
-```
-## Errors
-```
-```
-## Fail
-```
-```
+## All Passed
+## No Errors nor Failed
 
 # TestTrainAdvanced.java
 ## Pass
@@ -626,6 +611,7 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 ## Fail
 ```
 ```
+
 
 
 
