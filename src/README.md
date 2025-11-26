@@ -62,6 +62,37 @@
 		cust.setStatus(Customer.CUST_ENTERED);  // set status to allowed value
 		assertEquals(message, Customer.CUST_ENTERED, cust.getStatus());  // expect status to be set to value of CUST_ENTERED
 	}
+-------------------------------------------------------------
+Reason for failiure ↑↑↑
+java.lang.AssertionError: Constructor should throw exception for invalid value of id
+	at org.junit.Assert.fail(Assert.java:89)
+	at TestCustomerAdvanced.testIdZeroValue(TestCustomerAdvanced.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211)
+
+-------------------------------------------------------------
 	@Test
 	// Test that setStatus correctly updates the attributes and get method returns it:
 	//     attribute status set to CUST_EXITED
@@ -75,7 +106,38 @@
 		cust.setStatus(Customer.CUST_EXITED);  // set status to allowed value
 		assertEquals(message, Customer.CUST_EXITED, cust.getStatus());  // expect status to be set to value of CUST_EXITED
 	}
+-------------------------------------------------------------
+Reason of Failure ↑↑↑
+java.lang.AssertionError: Constructor should throw exception for invalid value of id
+	at org.junit.Assert.fail(Assert.java:89)
+	at TestCustomerAdvanced.testIdZeroValue(TestCustomerAdvanced.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211)
 
+
+-------------------------------------------------------------
 ```
 ## Errors
 ```
@@ -175,4 +237,5 @@
 ## Fail
 ```
 ```
+
 
