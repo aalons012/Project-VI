@@ -76,9 +76,7 @@
 		assertEquals(message, Customer.CUST_EXITED, cust.getStatus());  // expect status to be set to value of CUST_EXITED
 	}
 ```
-## Errors
-```
-```
+## Errors: None
 ## Fail
 ```
 	@Test
@@ -677,6 +675,7 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 ## Fail
 ```
 ```
+
 
 
 
