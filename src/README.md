@@ -1,4 +1,4 @@
-PEADSE LOOK AT THE OUTLINE BEFORE CONTINUING
+PLEASE LOOK AT THE OUTLINE BEFORE CONTINUING
 # TestCustomerAdvanced.java
 ## Pass
 ```
@@ -1359,6 +1359,7 @@ java.lang.AssertionError: Train class should only have three methods defined
 
 -------------------------------------------------------------
 ```
+
 
 
 
