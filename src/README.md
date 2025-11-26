@@ -572,8 +572,8 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 -------------------------------------------------------------
 ```
 # TestCustomerBasics.java
-## All Passed
-## No Errors nor Failed
+## * All Passed
+## * No Errors nor Failed
 
 # TestSimulatorAdvanced.java
 ## Pass
@@ -611,6 +611,7 @@ java.lang.AssertionError: Constructor should throw exception for invalid value o
 ## Fail
 ```
 ```
+
 
 
 
