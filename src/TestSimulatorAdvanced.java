@@ -196,7 +196,7 @@ public class TestSimulatorAdvanced {
 	// Test that for id non-integer gets error message 
 	// MUST HAVE customer files at src/customer  and src/bad-id2
 	// If file does not exists, the test will fail 
-	public  void testCheckFtileIdInvalid2()
+	public  void testCheckFileIdInvalid2()
 	{
 		String message = "Each line must have four integers. Try again.";
 
