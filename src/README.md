@@ -1,7 +1,7 @@
 PLEASE LOOK AT THE OUTLINE BEFORE CONTINUING
 # BEFORE FIXING CODE
-# TestCustomerAdvanced.java
-## Pass
+## TestCustomerAdvanced.java
+### Pass
 ```
   @Test
 	// Test that constructor correctly updates the attributes and get method returns it:
@@ -78,8 +78,8 @@ PLEASE LOOK AT THE OUTLINE BEFORE CONTINUING
 		assertEquals(message, Customer.CUST_EXITED, cust.getStatus());  // expect status to be set to value of CUST_EXITED
 	}
 ```
-## Errors: None
-## Fail
+### Errors: None
+### Fail
 ```
 	@Test
 	// test that if id attribute is negative throws IllegalArgumentException
@@ -624,12 +624,12 @@ java.util.NoSuchElementException: No line found
 -------------------------------------------------------------
 
 ```
-# TestCustomerBasics.java
+## TestCustomerBasics.java
 * All Passed
 * No Errors nor Failed
 
-# TestSimulatorAdvanced.java
-## Pass
+## TestSimulatorAdvanced.java
+### Pass
 ```
 	@Test
 	// Test that there is correct prompt for file and enter expects that file
@@ -1116,7 +1116,7 @@ java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.get(int)" bec
 
 -------------------------------------------------------------
 ```
-## Fail
+### Fail
 ```
 	@Test
 	// Test that if user presses enter and file not exists, he gets error message
@@ -1172,16 +1172,16 @@ java.lang.AssertionError
 
 ```
 
-# TestSimulatorBasics.java
+## TestSimulatorBasics.java
 * All Passed
 * No Errors nor Failed
 
-# TestTrainAdvanced.java
+## TestTrainAdvanced.java
 * All Passed
 * No Errors nor Failed
 
-# TestTrainBasics.java
-## Pass
+## TestTrainBasics.java
+### Pass
 ```
 	@Test
 	// Check that there is a class Train
@@ -1314,11 +1314,11 @@ java.lang.AssertionError
 	}
 
 ```
-## Errors
+### Errors
 ```
 
 ```
-## Fail
+### Fail
 ```
 	@Test
 	// Check that Train only has the required 3 methods 
@@ -1360,6 +1360,7 @@ java.lang.AssertionError: Train class should only have three methods defined
 
 -------------------------------------------------------------
 ```
+
 
 
 
