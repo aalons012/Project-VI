@@ -1,28 +1,28 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Simulator {
 
-    // One shared Scanner for console input.
-    // IMPORTANT: Do NOT close this (matches your instructor warning).
-    private static final Scanner CONSOLE = new Scanner(System.in);
+    private Scanner console;
+
+    public Simulator() {
+        // Create scanner AFTER JUnit sets System.in
+        console = new Scanner(System.in);
+    }
 
     public static void main(String[] args) {
         Simulator sim = new Simulator();
         int stops = sim.getStopsFromUser();
-        File inputFile = sim.getInputFile();
-        ArrayList<Customer> customers = sim.checkFile(stops, inputFile);
-
-        // If checkFile() returns null, file contents were invalid;
-        // keep prompting for a new file until we get a valid list.
-        while (customers == null) {
-            inputFile = sim.getInputFile();
-            customers = sim.checkFile(stops, inputFile);
+        File file = sim.getInputFile();
+        ArrayList<Customer> list = sim.checkFile(stops, file);
+        while (list == null) {
+            file = sim.getInputFile();
+            list = sim.checkFile(stops, file);
         }
-
-        sim.run(stops, customers);
+        sim.run(stops, list);
     }
 
     /**
@@ -39,29 +39,29 @@ public class Simulator {
      * a valid integer > 1 is entered.
      */
     public int getStopsFromUser() {
-        int stops = 0;
-        boolean valid = false;
-
-        while (!valid) {
-            System.out.print(
-                "Enter number of stops the train has on its route (must be greater than 1): "
-            );
-
-            if (CONSOLE.hasNextInt()) {
-                stops = CONSOLE.nextInt();
-                CONSOLE.nextLine(); // consume newline
-                if (stops > 1) {
-                    valid = true;
-                } else {
-                    System.out.println("Invalid input, try again");
-                }
-            } else {
-                // Non-integer entered
-                CONSOLE.nextLine(); // consume the invalid token
-                System.out.println("Invalid input, try again");
+        while (true) {
+            System.out.print("Enter number of stops the train has on its route (must be greater than 1):");
+            String line;
+            try {
+                line = console.nextLine();
+            } catch (NoSuchElementException e) {
+                // Should not happen in tests, but just in case
+                return 0;
             }
+
+            Scanner lineScanner = new Scanner(line);
+            if (!lineScanner.hasNextInt()) {
+                System.out.println("Invalid input, try again");
+                continue;
+            }
+            int stops = lineScanner.nextInt();
+            // no extra tokens allowed and must be > 1
+            if (stops <= 1 || lineScanner.hasNext()) {
+                System.out.println("Invalid input, try again");
+                continue;
+            }
+            return stops;
         }
-        return stops;
     }
 
     /**
@@ -73,10 +73,9 @@ public class Simulator {
     public File getInputFile() {
         while (true) {
             System.out.print(
-                "Enter absolute path for data file or for default (C:/train/customer-data.txt) press Enter: "
+                "Enter absolute path for data file or for default (C:/train/customer-data.txt) press Enter:"
             );
-            String line = CONSOLE.nextLine().trim();
-
+            String line = console.nextLine().trim();
             if (line.isEmpty()) {
                 line = "C:/train/customer-data.txt";
             }
@@ -89,6 +88,7 @@ public class Simulator {
             }
         }
     }
+
 
     /**
      * Reads the file and validates the data:
@@ -118,15 +118,13 @@ public class Simulator {
         while (fileScanner.hasNextLine()) {
             String line = fileScanner.nextLine().trim();
             if (line.isEmpty()) {
-                // If your SDS says empty lines are invalid, change this
-                // to print an error and return null instead.
-                continue;
+                continue; // or treat as invalid if the SDS says so
             }
 
             Scanner lineScanner = new Scanner(line);
-            int id, arrival, enter, exit;
+            int id, time, enter, exit;
 
-            // Make sure there are exactly 4 integers on the line
+            // 4 integers required
             if (!lineScanner.hasNextInt()) {
                 System.out.println("Each line must have four integers. Try again.");
                 return null;
@@ -137,7 +135,7 @@ public class Simulator {
                 System.out.println("Each line must have four integers. Try again.");
                 return null;
             }
-            arrival = lineScanner.nextInt();
+            time = lineScanner.nextInt();
 
             if (!lineScanner.hasNextInt()) {
                 System.out.println("Each line must have four integers. Try again.");
@@ -151,27 +149,27 @@ public class Simulator {
             }
             exit = lineScanner.nextInt();
 
-            // No extra junk allowed after the four ints
+            // No extra junk after 4 ints
             if (lineScanner.hasNext()) {
                 System.out.println("Each line must have four integers. Try again.");
                 return null;
             }
 
-            // Validate constraints:
-            // ID > 1
-            if (id <= 1) {
+            // Now validate constraints
+            // id > 0
+            if (id <= 0) {
                 System.out.println("Data in input file is not correct. Try again.");
                 return null;
             }
 
-            // arrival > 0
-            if (arrival <= 0) {
+            // time/arrival > 0
+            if (time <= 0) {
                 System.out.println("Data in input file is not correct. Try again.");
                 return null;
             }
 
-            // enter and exit between 1 and stops
-            if (enter <= 0 || enter > stops || exit <= 0 || exit > stops) {
+            // enter and exit must be between 1 and stops
+            if (enter < 1 || enter > stops || exit < 1 || exit > stops) {
                 System.out.println("Data in input file is not correct. Try again.");
                 return null;
             }
@@ -182,7 +180,7 @@ public class Simulator {
                 return null;
             }
 
-            // ID must be unique
+            // id must be unique
             for (Customer c : list) {
                 if (c.getId() == id) {
                     System.out.println("Data in input file is not correct. Try again.");
@@ -190,9 +188,17 @@ public class Simulator {
                 }
             }
 
-            list.add(new Customer(id, arrival, enter, exit));
+            try {
+                Customer cust = new Customer(id, time, enter, exit);
+                list.add(cust);
+            } catch (IllegalArgumentException e) {
+                // If constructor validation fails, treat as bad data
+                System.out.println("Data in input file is not correct. Try again.");
+                return null;
+            }
         }
 
         return list;
     }
-}
+
+    }
