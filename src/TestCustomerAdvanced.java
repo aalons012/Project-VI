@@ -121,7 +121,7 @@ public class TestCustomerAdvanced {
 	}
 	@Test
 	// test that if id attribute is zero throws IllegalArgumentException
-	public void testIdZerotValue()
+	public void testIdZeroValue()
 	{
 		try {
 			int id = 0;  // invalid value of id
