@@ -15,10 +15,9 @@ public class Train {
     }
 
     
-    public void simulate()
-    {
+    public void simulate() {
         int currStop = 1;   // current stop starts at 1
-        int time = 1;  // current time
+        int time = 1;       // current time
         boolean loopAgain = true;  
 
         while (loopAgain)
@@ -80,6 +79,7 @@ public class Train {
                            " stops and it took " + currTime +
                            " time units to process all customers");
     }
+
 
     // Getters in case tests need them
     public int getMadeStops() {
