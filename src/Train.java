@@ -80,22 +80,5 @@ public class Train {
                            " time units to process all customers");
     }
 
-
-    // Getters in case tests need them
-    public int getMadeStops() {
-        return madeStops;
-    }
-
-    public int getCurrTime() {
-        return currTime;
-    }
-
-    public int getStops() {
-        return stops;
-    }
-
-    public ArrayList<Customer> getCustList() {
-        return custList;
-    }
 }
 
